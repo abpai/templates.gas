@@ -1,0 +1,5 @@
+{
+  "scriptId": "[add-test-script-id-here]",
+  "rootDir": "dist",
+  "fileExtension": "js"
+}

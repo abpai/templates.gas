@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Match Vite's target
+    "module": "ESNext", // Use ES modules
+    "lib": ["ES2017"],  // Include necessary ES libraries
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Enables emit interoperability between CommonJS and ES Modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+    "moduleResolution": "bundler", // Specify module resolution strategy
+    "resolveJsonModule": true, // Include modules imported with .json extension
+    "isolatedModules": true, // Transpile each file as a separate module (similar to 'ts.transpileModule')
+    "noEmit": true, // Do not emit outputs (Vite will handle this). Set to false if you want tsc to emit.
+                     // For library projects, you might want tsc to emit declaration files.
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "checkJs": false, // Do not report errors in .js files.
+    "outDir": "dist", // Redirect output structure to the directory.
+    "rootDir": ".", // Use project root so files like vitest.setup.ts are included without path issues.
+    "baseUrl": ".", // Base directory to resolve non-absolute module names.
+    "paths": {
+      "@/*": ["src/*"] // Path mapping for aliases
+    },
+    "types": [
+      "google-apps-script", // Include type definitions for Google Apps Script
+      "node"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts" // Include declaration files for custom modules
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

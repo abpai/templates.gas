@@ -1,0 +1,342 @@
+<style>
+  body {
+    background: #f8f9fa;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  .sidebar-header {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+  }
+  .sidebar-header h2 {
+    margin: 0 0 4px 0;
+    color: #1a202c;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .sidebar-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+  .provider-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+  }
+  .provider-section:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .provider-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .provider-toggle {
+    transform: scale(1.2);
+    accent-color: #4a5568;
+    margin: 0;
+  }
+  .provider-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-group {
+    margin-bottom: 12px;
+  }
+  .form-group:last-of-type {
+    margin-bottom: 16px;
+  }
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+    color: #374151;
+  }
+  .help-text {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 2px;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  input[type="password"],
+  input[type="text"],
+  select {
+    width: 100%;
+  }
+  input, select {
+    font-size: 0.875rem;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #ffffff;
+    transition: all 0.15s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+  input:focus, select:focus {
+    border-color: #4a5568;
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.1);
+  }
+  input:disabled, select:disabled {
+    background: #f9fafb;
+    color: #9ca3af;
+    border-color: #d1d5db;
+    cursor: not-allowed;
+  }
+  .actions {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+  }
+  .btnrow {
+    display: flex;
+    gap: 10px;
+  }
+  button {
+    font-size: 0.875rem;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    background: #4a5568;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex: 1;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  button:hover {
+    background: #2d3748;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.2);
+  }
+  button.secondary {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+  }
+  button.secondary:hover {
+    background: #edf2f7;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .warning {
+    background: #fed7d7;
+    border: 1px solid #fc8181;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    color: #991b1b;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .test-buttons {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+  }
+  .test-buttons button {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    background: #f7fafc;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    flex: none;
+    width: auto;
+    min-width: 120px;
+  }
+  .test-buttons button:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+  }
+  .test-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }
+</style>
+<div class="sidebar-header">
+  <h2> AI Model Settings</h2>
+  <p>Configure your AI providers for document extraction</p>
+</div>
+<div id="warning" class="warning" style="display: none;">
+  <span>⚠️</span>
+  <span>At least one model provider must be enabled for extraction to work.</span>
+</div>
+<!-- OpenAI Section -->
+<div class="provider-section">
+  <div class="provider-header">
+    <input type="checkbox" id="openaiEnabled" class="provider-toggle" <?= openaiEnabled ? 'checked' : '' ?> />
+    <label for="openaiEnabled" class="provider-title">OpenAI</label>
+  </div>
+  <div class="form-group">
+    <label for="openaiApiKey">API Key:</label>
+    <input type="password" id="openaiApiKey" autocomplete="off" placeholder="sk-..." <?= !openaiEnabled ? 'disabled' : '' ?> />
+  </div>
+  <div class="form-group">
+    <label for="openaiModel">Model:</label>
+    <select id="openaiModel" <?= !openaiEnabled ? 'disabled' : '' ?>>
+      <option value="gpt-4.1" <?= openaiModel === 'gpt-4.1' ? 'selected' : '' ?>>GPT-4.1</option>
+      <option value="gpt-4.1-mini" <?= openaiModel === 'gpt-4.1-mini' ? 'selected' : '' ?>>GPT-4.1 Mini</option>
+      <option value="gpt-4.1-nano" <?= openaiModel === 'gpt-4.1-nano' ? 'selected' : '' ?>>GPT-4.1 Nano</option>
+      <option value="o3" <?= openaiModel === 'o3' ? 'selected' : '' ?>>o3</option>
+      <option value="o4-mini" <?= openaiModel === 'o4-mini' ? 'selected' : '' ?>>o4-mini</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="openaiTemperature">Temperature:</label>
+    <div class="help-text">Controls randomness (0.0 = deterministic, 1.0 = creative)</div>
+    <input type="number" id="openaiTemperature" min="0" max="1" step="0.1" value="<?= openaiTemperature ?>" placeholder="1" <?= !openaiEnabled ? 'disabled' : '' ?> />
+  </div>
+  <div class="test-buttons">
+    <button type="button" onclick="google.script.run.testOpenAIConnection()" <?= !openaiEnabled ? 'disabled' : '' ?>>Test Connection</button>
+  </div>
+</div>
+<!-- Gemini Section -->
+<div class="provider-section">
+  <div class="provider-header">
+    <input type="checkbox" id="geminiEnabled" class="provider-toggle" <?= geminiEnabled ? 'checked' : '' ?> />
+    <label for="geminiEnabled" class="provider-title">Google Gemini</label>
+  </div>
+  <div class="form-group">
+    <label for="geminiApiKey">API Key:</label>
+    <input type="password" id="geminiApiKey" autocomplete="off" placeholder="AI..." <?= !geminiEnabled ? 'disabled' : '' ?> />
+  </div>
+  <div class="form-group">
+    <label for="geminiModel">Model:</label>
+    <select id="geminiModel" <?= !geminiEnabled ? 'disabled' : '' ?>>
+      <option value="gemini-2.5-pro" <?= geminiModel === 'gemini-2.5-pro' ? 'selected' : '' ?>>Gemini 2.5 Pro</option>
+      <option value="gemini-2.5-flash" <?= geminiModel === 'gemini-2.5-flash' ? 'selected' : '' ?>>Gemini 2.5 Flash</option>
+    </select>
+  </div>
+  <div class="test-buttons">
+    <button type="button" onclick="google.script.run.testGeminiConnection()" <?= !geminiEnabled ? 'disabled' : '' ?>>Test Connection</button>
+  </div>
+</div>
+<div class="actions">
+  <div class="btnrow">
+    <button onclick="save()">Save Settings</button>
+    <button class="secondary" onclick="google.script.host.close()">Close</button>
+  </div>
+</div>
+<script>
+  // Enable/disable form elements based on provider toggles
+  function toggleProvider(provider) {
+    const enabled = document.getElementById(provider + 'Enabled').checked;
+    const inputs = document.querySelectorAll('#' + provider + 'ApiKey, #' + provider + 'Model');
+    const tempInput = document.getElementById(provider + 'Temperature');
+
+    inputs.forEach(input => input.disabled = !enabled);
+    if (tempInput) tempInput.disabled = !enabled;
+
+    // Enable/disable test buttons - find the parent provider section and its test button
+    const providerSection = document.getElementById(provider + 'Enabled').closest('.provider-section');
+    if (providerSection) {
+      const testButton = providerSection.querySelector('.test-buttons button');
+      if (testButton) {
+        testButton.disabled = !enabled;
+      }
+    }
+
+    checkWarning();
+  }
+
+  function checkWarning() {
+    const openaiEnabled = document.getElementById('openaiEnabled').checked;
+    const geminiEnabled = document.getElementById('geminiEnabled').checked;
+    const warning = document.getElementById('warning');
+
+    if (!openaiEnabled && !geminiEnabled) {
+      warning.style.display = 'block';
+    } else {
+      warning.style.display = 'none';
+    }
+  }
+
+  // Set up event listeners
+  document.getElementById('openaiEnabled').addEventListener('change', () => toggleProvider('openai'));
+  document.getElementById('geminiEnabled').addEventListener('change', () => toggleProvider('gemini'));
+
+  function save() {
+    const openaiEnabled = document.getElementById('openaiEnabled').checked;
+    const geminiEnabled = document.getElementById('geminiEnabled').checked;
+
+    if (!openaiEnabled && !geminiEnabled) {
+      alert('At least one model provider must be enabled.');
+      return;
+    }
+
+    const settings = {
+      openai: {
+        enabled: openaiEnabled,
+        apiKey: document.getElementById('openaiApiKey').value.trim(),
+        model: document.getElementById('openaiModel').value,
+        temperature: document.getElementById('openaiTemperature').value
+      },
+      gemini: {
+        enabled: geminiEnabled,
+        apiKey: document.getElementById('geminiApiKey').value.trim(),
+        model: document.getElementById('geminiModel').value
+      }
+    };
+
+    google.script.run.withSuccessHandler(function() {
+      alert('Settings saved successfully!');
+    }).withFailureHandler(function(error) {
+      alert('Error saving settings: ' + error.message);
+    }).saveAIModelSettings(settings);
+  }
+
+  // Initialize form state
+  checkWarning();
+</script>
