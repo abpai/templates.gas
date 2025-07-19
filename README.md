@@ -10,7 +10,6 @@ This template provides a modern, robust starting point for developing Google App
 -   **ESLint & Prettier:** For consistent code style and quality.
 -   **Vitest:** A blazing-fast unit testing framework.
 -   **Client-Server Communication:** Includes a sidebar example demonstrating how to call server-side TypeScript functions from your client-side UI.
--   **Automated Deployment:** A pre-configured GitHub Actions workflow to automatically deploy your script on pushes to the `main` branch.
 
 ## Getting Started
 
@@ -105,28 +104,6 @@ This template provides a modern, robust starting point for developing Google App
     ```bash
     pnpm test
     ```
-
-## Automated Deployment (CI/CD)
-
-This template includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys your script to Google Apps Script when you push to the `main` branch.
-
-### Setup
-
-1.  **Get your `clasp` credentials:**
-    Run the following command to find the location of your `.clasprc.json` file:
-    ```bash
-    clasp login --status
-    ```
-    Open the file and copy its entire contents.
-
-2.  **Create a GitHub Secret:**
-    -   In your GitHub repository, go to `Settings` > `Secrets and variables` > `Actions`.
-    -   Click `New repository secret`.
-    -   Name the secret `CLASPRC_JSON`.
-    -   Paste the contents of your `.clasprc.json` file into the value field.
-    -   Save the secret.
-
-Now, every time you push to `main`, the action will run, authenticate with `clasp`, and deploy your latest build.
 
 ## Project Structure
 

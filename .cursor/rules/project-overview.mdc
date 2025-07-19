@@ -1,0 +1,43 @@
+---
+alwaysApply: true
+---
+
+# Project Overview
+
+This is a Google Apps Script project that uses AI to extract information from documents.
+
+## Key Files and Directories
+
+### Server-side Logic (`src/`)
+
+- **`main.ts`**: The main entry point for the Google Apps Script project. It likely contains the `onOpen` function to create the add-on menu.
+- **`ui.ts`**: Manages the user interface, including creating menu items and showing sidebars.
+- **`processingEngine.ts`**: Contains the core logic for processing documents, orchestrating the extraction process.
+- **`fileScanner.ts`**: Scans for files in Google Drive.
+- **`sheetUpdater.ts`**: Updates Google Sheets with the extracted information.
+- **`jobsTracker.ts`**: Manages and tracks the status of processing jobs.
+
+### AI Integration (`src/`)
+
+- **`geminiClient.ts`**: A client for interacting with the Google Gemini API.
+- **`openaiClient.ts`**: A client for interacting with the OpenAI API.
+- **`extractionPrompt.ts`**: Defines the prompts sent to the AI models for information extraction.
+- **`extractionSchema.ts`**: Defines the expected schema or structure of the data returned by the AI models.
+
+### User Interface (`src/html/`)
+
+The `src/html/` directory contains the HTML files for the sidebars and dialogs used in the add-on.
+
+- **`aiDocumentTestSidebar.html`**: UI for testing document processing.
+- **`aiModelSettingsSidebar.html`**: UI for configuring AI model settings.
+
+### Configuration (`src/`)
+
+- **`config.ts`**: Contains configuration settings for the project, such as API keys and other constants.
+
+### Scripts (`scripts/`)
+
+The `scripts/` directory contains standalone scripts for command-line operations.
+
+- **`run-extraction.ts`**: A script to run the extraction process from the command line.
+- **`bulk-process.ts`**: A script for batch processing multiple documents.

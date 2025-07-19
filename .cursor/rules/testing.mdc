@@ -1,0 +1,13 @@
+# Running Tests
+
+This project uses `vitest` for testing. To run the test suite, use the following command:
+
+```bash
+pnpm test
+```
+
+This will execute all tests and provide a summary of the results. For a continuous watch mode during development, you can use:
+
+```bash
+pnpm test:watch
+```

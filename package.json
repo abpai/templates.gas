@@ -14,18 +14,13 @@
     "build:test": "npm run env:test && vite build --mode test",
     "build:prod": "npm run env:prod && vite build --mode production",
     "push": "npm run build && clasp push",
-    "deploy": "clasp deploy --description \"CI auto-deploy\"",
     "prepare": "husky || true",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "env:switch": "node scripts/env-switch.js switch",
     "env:current": "node scripts/env-switch.js current",
     "env:test": "node scripts/env-switch.js switch test",
-    "env:prod": "node scripts/env-switch.js switch production",
-    "push:test": "npm run build:test && clasp push",
-    "push:prod": "npm run build:prod && clasp push",
-    "deploy:test": "npm run push:test && clasp deploy --description \"Test deployment\"",
-    "deploy:prod": "npm run push:prod && clasp deploy --description \"Production deployment\""
+    "env:prod": "node scripts/env-switch.js switch production"
   },
   "type": "module",
   "keywords": [

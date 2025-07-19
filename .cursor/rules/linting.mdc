@@ -1,0 +1,9 @@
+# Linting
+
+This project uses ESLint to enforce code quality. To lint the entire codebase, run the following command:
+
+```bash
+pnpm lint
+```
+
+This will check all `.ts` and `.js` files for linting errors and automatically fix them when possible.

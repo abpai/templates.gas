@@ -1,4 +1,4 @@
-# Gemini Developer Guide
+# Agents Developer Guide
 
 This document provides instructions and best practices for developers working with this Google Apps Script template. Its goal is to help you understand the project's architecture and extend it effectively.
 
